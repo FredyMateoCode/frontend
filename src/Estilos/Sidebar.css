@@ -1,0 +1,67 @@
+/* Sidebar styles */
+.sidebar {
+    width: 250px; /* Ancho del sidebar */
+    height: 100vh; /* Full screen height */
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    position: fixed; /* Sidebar fijo en la izquierda */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Aseguramos que esté encima del contenido */
+    transition: transform 0.3s ease; /* Para animación al ocultar el sidebar */
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+/* Contenedor principal que incluye el sidebar y el contenido */
+.dashboard-container {
+    display: flex;
+    margin-left: 250px; /* Espacio para el sidebar */
+    transition: margin-left 0.3s ease; /* Transición cuando el sidebar se oculta */
+    padding: 20px;
+}
+
+/* Estilo del contenido */
+.dashboard-content {
+    flex: 1; /* El contenido toma el resto del espacio */
+    padding: 20px;
+    background-color: #f4f4f4;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px; /* Reducir el tamaño del sidebar en pantallas pequeñas */
+        transform: translateX(-100%); /* Ocultar el sidebar */
+    }
+
+    .dashboard-container {
+        margin-left: 0;
+    }
+
+    .sidebar.active {
+        transform: translateX(0); /* Mostrar el sidebar cuando se activa */
+    }
+
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+    }
+}
